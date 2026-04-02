@@ -1,0 +1,87 @@
+site_name: paygate
+site_description: Module Python d'abstraction des passerelles de paiement — sans dépendances externes.
+site_author: flavien-hugs
+repo_url: https://github.com/flavien-hugs/payment-providers
+repo_name: paygate
+
+docs_dir: docs
+watch:
+  - ../
+
+theme:
+  name: material
+  language: fr
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Passer en mode clair
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Passer en mode sombre
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - content.code.annotate
+    - search.highlight
+    - search.suggest
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+plugins:
+  - search:
+      lang: fr
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: ["../src"]
+          options:
+            docstring_style: google
+            show_source: true
+            show_root_heading: true
+            show_symbol_type_heading: true
+            members_order: source
+
+nav:
+  - Accueil: index.md
+  - Guide:
+      - Démarrage rapide: guide/getting-started.md
+      - Ajouter un provider: guide/add-provider.md
+  - Providers:
+      - CinetPay: providers/cinetpay.md
+      - Kkiapay: providers/kkiapay.md
+  - Référence API:
+      - base.py: reference/base.md
+      - factory.py: reference/factory.md
+  - Exemples:
+      - Utilisation de base: examples/basic-usage.md
+      - Protocol Transaction: examples/custom-transaction.md

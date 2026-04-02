@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "paygate"
+name = "paygate-africa"
 version = "0.1.0"
-description = "Abstraction unifiée des passerelles de paiement (CinetPay, Kkiapay...) - Zéro dépendance externe."
+description = "Abstraction unifiée des passerelles de paiement africaines (CinetPay, Kkiapay...) - Zéro dépendance externe."
 authors = ["flavien-hugs"]
 readme = "README.md"
 license = "MIT"
@@ -15,7 +15,7 @@ classifiers = [
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-packages = [{include = "paygate", from = "src"}]
+packages = [{include = "paygate_africa", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -24,7 +24,6 @@ python = "^3.10"
 mkdocs = "^1.6"
 mkdocs-material = "^9.5"
 mkdocstrings = {extras = ["python"], version = "^1.0"}
-
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^9.0.2"
@@ -52,7 +51,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["paygate"]
+known-first-party = ["paygate_africa"]
 
 [build-system]
 requires = ["poetry-core"]

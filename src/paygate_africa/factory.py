@@ -6,15 +6,15 @@ from functools import lru_cache
 @unique
 class PaymentProviderPath(str, Enum):
     """Dot-paths pointing to each provider's client class."""
-    KKIAPAY = "paygate.kkiapay.client.KkiapayProvider"
-    CINETPAY = "paygate.cinetpay.client.CinetPayProvider"
+    KKIAPAY = "paygate_africa.kkiapay.client.KkiapayProvider"
+    CINETPAY = "paygate_africa.cinetpay.client.CinetPayProvider"
 
 
 @unique
 class ProviderSettingsPath(str, Enum):
     """Dot-paths pointing to each provider's settings class."""
-    KKIAPAY = "paygate.kkiapay.settings.KkiapaySettings"
-    CINETPAY = "paygate.cinetpay.settings.CinetPaySettings"
+    KKIAPAY = "paygate_africa.kkiapay.settings.KkiapaySettings"
+    CINETPAY = "paygate_africa.cinetpay.settings.CinetPaySettings"
 
 
 def validate_payment_provider(value):

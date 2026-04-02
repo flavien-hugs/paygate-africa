@@ -7,7 +7,7 @@ Les classes sont mises en cache avec `lru_cache` pour éviter les imports répé
 
 Dot-paths vers les classes clients de chaque provider.
 
-::: paygate.factory.PaymentProviderPath
+::: paygate_africa.factory.PaymentProviderPath
 
 ---
 
@@ -15,14 +15,14 @@ Dot-paths vers les classes clients de chaque provider.
 
 Dot-paths vers les classes settings de chaque provider.
 
-::: paygate.factory.ProviderSettingsPath
+::: paygate_africa.factory.ProviderSettingsPath
 
 ---
 
 ## Fonctions
 
-::: paygate.factory.validate_payment_provider
+::: paygate_africa.factory.validate_payment_provider
 
-::: paygate.factory.load_provider_class
+::: paygate_africa.factory.load_provider_class
 
-::: paygate.factory.select_provider
+::: paygate_africa.factory.select_provider

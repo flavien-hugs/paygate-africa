@@ -1,4 +1,4 @@
-# paygate
+# paygate_africa
 
 Module Python d'abstraction des passerelles de paiement.
 
@@ -21,7 +21,7 @@ Il fournit une interface unifiée pour intégrer plusieurs fournisseurs sans cou
 ## Aperçu rapide
 
 ```python
-from paygate.factory import PaymentProviderPath, select_provider
+from paygate_africa.factory import PaymentProviderPath, select_provider
 
 provider = select_provider(PaymentProviderPath.CINETPAY)
 url = await provider.initiate_payment(tx)
@@ -61,7 +61,7 @@ classDiagram
 ```
 
 ```
-paygate/
+paygate_africa/
 ├── base.py          # Contrat abstrait (ABC) + Protocol Transaction
 ├── factory.py       # Chargement dynamique des providers
 ├── cinetpay/        # Implémentation CinetPay

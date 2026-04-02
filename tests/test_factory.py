@@ -1,13 +1,13 @@
 import pytest
 
-from paygate.base import PaymentProvider
-from paygate.factory import PaymentProviderPath, load_provider_class, select_provider
+from paygate_africa.base import PaymentProvider
+from paygate_africa.factory import PaymentProviderPath, load_provider_class, select_provider
 
 
 def test_enum_paths():
     """Verify that all enums correspond to valid dot-paths within the package."""
     for path in PaymentProviderPath:
-        assert path.startswith("paygate.")
+        assert path.startswith("paygate_africa.")
         assert path.endswith("Provider")
 
 
@@ -28,4 +28,4 @@ def test_select_provider():
 def test_invalid_provider():
     """Verify that an invalid dot-path raises an ImportError or AttributeError during loading."""
     with pytest.raises((ImportError, AttributeError, ValueError)):
-        load_provider_class("paygate.invalid.UnknownProvider")
+        load_provider_class("paygate_africa.invalid.UnknownProvider")

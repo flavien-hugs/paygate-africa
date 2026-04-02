@@ -66,7 +66,7 @@ N'importe quel objet exposant les bons attributs est accepté (duck typing).
 ## Vérification à l'exécution
 
 ```python
-from paygate.base import Transaction
+from paygate_africa.base import Transaction
 
 obj = OrderTransaction(id="X", amount=100, currency="XOF", user_email="a@b.com")
 print(isinstance(obj, Transaction))  # True

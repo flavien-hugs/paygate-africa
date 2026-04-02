@@ -53,7 +53,7 @@ class MyTransaction:
 ### 2. Sélectionner un provider
 
 ```python
-from paygate.factory import PaymentProviderPath, select_provider
+from paygate_africa.factory import PaymentProviderPath, select_provider
 
 provider = select_provider(PaymentProviderPath.CINETPAY)
 # ou

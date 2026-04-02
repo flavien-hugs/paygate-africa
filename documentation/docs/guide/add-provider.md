@@ -55,7 +55,7 @@ import urllib.error
 import urllib.request
 from typing import Any, Dict
 
-from paygate.base import PaymentProvider, Transaction
+from paygate_africa.base import PaymentProvider, Transaction
 from .settings import conf
 
 
@@ -103,15 +103,15 @@ Ajoute ton provider aux deux enums dans `factory.py` :
 ```python
 @unique
 class PaymentProviderPath(str, Enum):
-    KKIAPAY   = "paygate.kkiapay.client.KkiapayProvider"
-    CINETPAY  = "paygate.cinetpay.client.CinetPayProvider"
-    MYPROVIDER = "paygate.myprovider.client.MyProvider"  # (1)
+    KKIAPAY   = "paygate_africa.kkiapay.client.KkiapayProvider"
+    CINETPAY  = "paygate_africa.cinetpay.client.CinetPayProvider"
+    MYPROVIDER = "paygate_africa.myprovider.client.MyProvider"  # (1)
 
 @unique
 class ProviderSettingsPath(str, Enum):
-    KKIAPAY   = "paygate.kkiapay.settings.KkiapaySettings"
-    CINETPAY  = "paygate.cinetpay.settings.CinetPaySettings"
-    MYPROVIDER = "paygate.myprovider.settings.MyProviderSettings"  # (2)
+    KKIAPAY   = "paygate_africa.kkiapay.settings.KkiapaySettings"
+    CINETPAY  = "paygate_africa.cinetpay.settings.CinetPaySettings"
+    MYPROVIDER = "paygate_africa.myprovider.settings.MyProviderSettings"  # (2)
 ```
 
 1. Dot-path vers la classe client de ton provider.

@@ -10,10 +10,10 @@ import asyncio
 # ---------------------------------------------------------------------------
 # Dans votre application, ces imports viendraient directement du package :
 #
-#   from paygate.factory import PaymentProviderPath, select_provider
+#   from paygate_africa.factory import PaymentProviderPath, select_provider
 #
 # ---------------------------------------------------------------------------
-from paygate.factory import PaymentProviderPath, select_provider
+from paygate_africa.factory import PaymentProviderPath, select_provider
 
 
 # ---------------------------------------------------------------------------

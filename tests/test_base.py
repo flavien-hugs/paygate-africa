@@ -1,4 +1,4 @@
-from paygate.base import Transaction
+from paygate_africa.base import Transaction
 
 
 class SimpleTx:

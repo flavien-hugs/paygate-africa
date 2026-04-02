@@ -8,12 +8,12 @@ Décrit l'interface attendue pour l'objet transaction passé à `initiate_paymen
 Grâce à `@runtime_checkable`, la conformité peut être vérifiée à l'exécution.
 
 ```python
-from paygate.base import Transaction
+from paygate_africa.base import Transaction
 
 isinstance(my_obj, Transaction)  # True si tous les attributs sont présents
 ```
 
-::: paygate.base.Transaction
+::: paygate_africa.base.Transaction
 
 ---
 
@@ -21,4 +21,4 @@ isinstance(my_obj, Transaction)  # True si tous les attributs sont présents
 
 Tout provider doit hériter de cette classe et implémenter les deux méthodes.
 
-::: paygate.base.PaymentProvider
+::: paygate_africa.base.PaymentProvider

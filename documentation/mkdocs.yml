@@ -1,8 +1,8 @@
-site_name: paygate
-site_description: Module Python d'abstraction des passerelles de paiement — sans dépendances externes.
+site_name: paygate-africa
+site_description: Module Python d'abstraction des passerelles de paiement africaines — sans dépendances externes.
 site_author: flavien-hugs
-repo_url: https://github.com/flavien-hugs/payment-providers
-repo_name: paygate
+repo_url: https://github.com/flavien-hugs/paygate-africa
+repo_name: paygate-africa
 
 docs_dir: docs
 watch:
@@ -64,6 +64,7 @@ plugins:
       handlers:
         python:
           paths: ["../src"]
+
           options:
             docstring_style: google
             show_source: true

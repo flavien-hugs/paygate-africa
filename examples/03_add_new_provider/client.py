@@ -9,8 +9,8 @@ import urllib.error
 import urllib.request
 from typing import Any
 
-from paygate.base import PaymentProvider, Transaction
-from paygate.cinetpay.settings import conf
+from paygate_africa.base import PaymentProvider, Transaction
+from paygate_africa.cinetpay.settings import conf
 
 
 def _post_json(url: str, payload: dict, headers: dict | None = None) -> dict:

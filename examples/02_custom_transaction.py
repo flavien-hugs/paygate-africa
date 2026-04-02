@@ -12,8 +12,8 @@ sans modifier le package.
 import asyncio
 from dataclasses import dataclass, field
 
-from paygate.base import Transaction
-from paygate.factory import PaymentProviderPath, select_provider
+from paygate_africa.base import Transaction
+from paygate_africa.factory import PaymentProviderPath, select_provider
 
 
 # ---------------------------------------------------------------------------

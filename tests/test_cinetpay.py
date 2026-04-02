@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 import pytest
 
-from paygate.cinetpay.client import CinetPayProvider
+from paygate_africa.cinetpay.client import CinetPayProvider
 
 
 # Mock settings before importing Provider if necessary
@@ -35,7 +35,7 @@ async def test_cinetpay_initiate_payment():
     }
 
     # Mock the internal _post_json call
-    with patch("paygate.cinetpay.client._post_json", return_value=mock_response):
+    with patch("paygate_africa.cinetpay.client._post_json", return_value=mock_response):
         url = await provider.initiate_payment(MockTx())
         assert url == "https://secure.cinetpay.com/pay/123"
 
@@ -49,7 +49,7 @@ async def test_cinetpay_verify_payment_success():
         "data": {"status": "ACCEPTED", "amount": 5000}
     }
 
-    with patch("paygate.cinetpay.client._post_json", return_value=mock_response):
+    with patch("paygate_africa.cinetpay.client._post_json", return_value=mock_response):
         result = await provider.verify_payment("TX-001")
         assert result["status"] == "SUCCESS"
         assert result["raw_data"] == mock_response
@@ -64,6 +64,6 @@ async def test_cinetpay_verify_payment_failed():
         "data": {"status": "REFUSED"}
     }
 
-    with patch("paygate.cinetpay.client._post_json", return_value=mock_response):
+    with patch("paygate_africa.cinetpay.client._post_json", return_value=mock_response):
         result = await provider.verify_payment("TX-001")
         assert result["status"] == "FAILED"

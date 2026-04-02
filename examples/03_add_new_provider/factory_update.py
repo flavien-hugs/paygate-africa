@@ -15,17 +15,17 @@ dans factory.py pour le rendre disponible via select_provider().
 # @unique
 # class PaymentProviderPath(str, Enum):
 #     """Dot-paths pointing to each provider's client class."""
-#     KKIAPAY  = "paygate.kkiapay.client.KkiapayProvider"
-#     CINETPAY = "paygate.cinetpay.client.CinetPayProvider"
-#     PAYDUNYA = "paygate.paydunya.client.PayDunyaProvider"  # ← ajouter
+#     KKIAPAY  = "paygate_africa.kkiapay.client.KkiapayProvider"
+#     CINETPAY = "paygate_africa.cinetpay.client.CinetPayProvider"
+#     PAYDUNYA = "paygate_africa.paydunya.client.PayDunyaProvider"  # ← ajouter
 #
 #
 # @unique
 # class ProviderSettingsPath(str, Enum):
 #     """Dot-paths pointing to each provider's settings class."""
-#     KKIAPAY  = "paygate.kkiapay.settings.KkiapaySettings"
-#     CINETPAY = "paygate.cinetpay.settings.CinetPaySettings"
-#     PAYDUNYA = "paygate.paydunya.settings.PayDunyaSettings"  # ← ajouter
+#     KKIAPAY  = "paygate_africa.kkiapay.settings.KkiapaySettings"
+#     CINETPAY = "paygate_africa.cinetpay.settings.CinetPaySettings"
+#     PAYDUNYA = "paygate_africa.paydunya.settings.PayDunyaSettings"  # ← ajouter
 
 
 # ---------------------------------------------------------------------------
@@ -38,7 +38,7 @@ import sys
 # Ajout du chemin pour l'exemple standalone
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
-from paygate.factory import PaymentProviderPath, select_provider  # noqa: E402
+from paygate_africa.factory import PaymentProviderPath, select_provider  # noqa: E402
 
 
 async def main():

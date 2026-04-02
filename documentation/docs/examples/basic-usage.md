@@ -6,7 +6,7 @@ Exemple complet : sélectionner un provider, initier un paiement, vérifier le s
 
 ```python linenums="1"
 import asyncio
-from paygate.factory import PaymentProviderPath, select_provider
+from paygate_africa.factory import PaymentProviderPath, select_provider
 
 
 class SampleTransaction:
@@ -48,7 +48,7 @@ provider = select_provider(PaymentProviderPath.KKIAPAY)
 !!! tip "Sélection dynamique depuis la config"
     ```python
     import os
-    from paygate.factory import PaymentProviderPath, select_provider, validate_payment_provider
+    from paygate_africa.factory import PaymentProviderPath, select_provider, validate_payment_provider
 
     name = validate_payment_provider(os.environ.get("PAYMENT_PROVIDER", "cinetpay"))
     provider = select_provider(PaymentProviderPath[name])

@@ -37,10 +37,10 @@ jobs:
 
       - name: Install dependencies
         if: steps.cached-pip-wheels.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
+        run: poetry install --with dev --no-interaction --no-root
 
       - name: Install project
-        run: poetry install --no-interaction
+        run: poetry install --with dev --no-interaction
 
       - name: Check code quality (Ruff)
         run: poetry run ruff check .

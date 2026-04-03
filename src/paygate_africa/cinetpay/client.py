@@ -1,34 +1,27 @@
 import asyncio
-import json
 import logging
 import os
 import socket
 import urllib.error
-import urllib.request
 from typing import Any
 
 from ..base import PaymentProvider, Transaction
+from ..utils import post_json
 from .settings import get_cinetpay_settings
 
 logger = logging.getLogger(__name__)
 
 
-def _post_json(url: str, payload: dict, headers: dict | None = None) -> dict:
-    """Synchronous JSON POST via urllib — wrapped with asyncio.to_thread for async use."""
-    data = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(url, data=data, method="POST")
-    req.add_header("Content-Type", "application/json")
-    req.add_header("Accept", "application/json")
-    if headers:
-        for key, value in headers.items():
-            req.add_header(key, value)
-    with urllib.request.urlopen(req, timeout=30) as response:
-        return json.loads(response.read())
-
-
 class CinetPayProvider(PaymentProvider):
+    """
+    Payment provider implementation for CinetPay.
+    """
+
     @property
     def conf(self):
+        """
+        Returns the CinetPay configuration settings.
+        """
         return get_cinetpay_settings()
 
     async def initiate_payment(self, tx: Transaction) -> str:
@@ -52,38 +45,35 @@ class CinetPayProvider(PaymentProvider):
             "customer_phone_number": tx.user_phone or "",
         }
 
-        # Diagnostic Réseau (activé uniquement en mode DEBUG)
+        # Network debug logging
         is_debug = os.environ.get("DEBUG", "false").lower() in ("true", "1", "yes")
         if is_debug:
             hostname = self.conf.CINETPAY_BASE_URL.split("//")[-1].split("/")[0]
             try:
                 ip = socket.gethostbyname(hostname)
-                logger.info(f"Diagnostic - DNS Resolution: {hostname} -> {ip}")
+                logger.debug(f"DNS Resolution: {hostname} -> {ip}")
                 with socket.create_connection((hostname, 443), timeout=5):
-                    logger.info(f"Diagnostic - TCP Connection to {hostname}:443 successful")
-            except Exception as diag_exc:
-                logger.error(f"Diagnostic - Network failure for {hostname}: {diag_exc}")
+                    logger.debug(f"TCP Connection to {hostname}:443 successful")
+            except Exception as e:
+                logger.warning(f"Connectivity check failed for {hostname}: {e}")
 
-        logger.info(f"Initiating payment at URL: {url}")
+        logger.info(f"Initiating payment via CinetPay: {tx.id}")
         try:
-            data = await asyncio.to_thread(_post_json, url, payload)
+            data = await asyncio.to_thread(post_json, url, payload)
         except urllib.error.HTTPError as exc:
             body = exc.read().decode("utf-8", errors="replace")
-            logger.error(f"HTTP Error: {body}")
-            raise RuntimeError(f"HTTP Error: {body}") from exc
+            logger.error(f"CinetPay API Error: {body}")
+            raise RuntimeError(f"CinetPay API Error: {body}") from exc
 
         if isinstance(data, dict) and str(data.get("code")) == "201":
             return data.get("data", {}).get("payment_url", "")
 
-        logger.error(f"Unexpected CinetPay response: {data}")
-        raise RuntimeError(f"Unexpected CinetPay response: {data}")
+        logger.error(f"Unexpected CinetPay API response: {data}")
+        raise RuntimeError(f"Unexpected CinetPay API response: {data}")
 
     async def verify_payment(self, transaction_id: str) -> dict[str, Any]:
         """
-        Check the status of a transaction on CinetPay.
-        Returns a normalized dict with:
-        - "status": "SUCCESS" | "FAILED"
-        - "raw_data": the full response from the CinetPay API
+        Verify the status of a transaction on CinetPay.
         """
         url = f"{self.conf.CINETPAY_BASE_URL}payment/check"
         payload = {
@@ -93,10 +83,10 @@ class CinetPayProvider(PaymentProvider):
         }
 
         try:
-            data = await asyncio.to_thread(_post_json, url, payload)
+            data = await asyncio.to_thread(post_json, url, payload)
         except urllib.error.HTTPError as exc:
             body = exc.read().decode("utf-8", errors="replace")
-            raise RuntimeError(f"HTTP Error: {body}") from exc
+            raise RuntimeError(f"CinetPay API Error: {body}") from exc
 
         status_code = data.get("code")
         cp_data = data.get("data", {})

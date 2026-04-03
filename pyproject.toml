@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "paygate-africa"
-version = "0.1.1"
+version = "0.1.2"
 description = "Abstraction unifiée des passerelles de paiement africaines (CinetPay, Kkiapay...) - Zéro dépendance externe."
 authors = ["flavien-hugs"]
 readme = "README.md"
@@ -55,7 +55,8 @@ ignore = [
 known-first-party = ["paygate_africa"]
 
 [tool.semantic_release]
-version_variable = "pyproject.toml:version"
+version_toml = ["pyproject.toml:tool.poetry.version"]
+version_variable = ["src/paygate_africa/__init__.py:__version__"]
 branch = "main"
 upload_to_pypi = true
 upload_to_release = true

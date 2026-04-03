@@ -36,10 +36,6 @@ jobs:
 
       - name: Build and deploy
         run: |
-          # On se place dans le dossier contenant mkdocs.yml
-          cd documentation
-          # Configuration Git pour permettre le push
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
-          # Déploiement vers gh-pages
           poetry run mkdocs gh-deploy --force --message "docs: automatic deployment [skip ci]"

@@ -6,7 +6,7 @@ repo_name: paygate-africa
 
 docs_dir: docs
 watch:
-  - ../
+  - src/
 
 theme:
   name: material
@@ -63,7 +63,7 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
-          paths: ["../src"]
+          paths: ["src"]
 
           options:
             docstring_style: google
@@ -83,6 +83,10 @@ nav:
   - Référence API:
       - base.py: reference/base.md
       - factory.py: reference/factory.md
+      - utils.py: reference/utils.md
+      - Providers:
+          - cinetpay.py: reference/cinetpay.md
+          - kkiapay.py: reference/kkiapay.md
   - Exemples:
       - Utilisation de base: examples/basic-usage.md
       - Protocol Transaction: examples/custom-transaction.md

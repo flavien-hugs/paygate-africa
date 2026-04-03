@@ -1,12 +1,15 @@
-# Exemples d'utilisation
+# Exemples d'utilisation — paygate-africa
 
-Ce dossier contient des exemples autonomes illustrant les cas d'usage du package `payment-providers`.
+Ce dossier contient des exemples complets et commentés pour vous aider à prendre en main la bibliothèque. 
 
-| Fichier | Description |
+Chaque script peut être exécuté indépendamment si les variables d'environnement nécessaires sont configurées.
+
+| Fichier | Rôle |
 |---|---|
-| `01_basic_usage.py` | Utilisation du factory pour initier et vérifier un paiement |
-| `02_custom_transaction.py` | Utiliser le Protocol `Transaction` avec un objet métier personnalisé |
-| `03_add_new_provider/` | Guide complet pour ajouter un nouveau provider (ex: PayDunya) |
+| `01_basic_usage.py` | Le workflow standard : sélection, initiation et vérification. |
+| `02_custom_transaction.py` | Comment utiliser vos propres objets (ORM, dataclass) grâce au duck typing. |
+| `03_add_new_provider/` | Étude de cas : ajouter le provider **PayDunya** étape par étape. |
 
-> Les exemples utilisent des stubs pour simuler `app.config` et `app.providers`
-> afin de pouvoir être lus et compris sans avoir toute l'application configurée.
+> [!NOTE]
+> Ces exemples sont destinés à l'apprentissage. Pour une utilisation en production, 
+> préférez vous référer à la [Documentation officielle](https://flavien-hugs.github.io/paygate-africa/).

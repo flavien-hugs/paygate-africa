@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "paygate-africa"
-version = "0.1.2"
+version = "1.0.1"
 description = "Abstraction unifiée des passerelles de paiement africaines (CinetPay, Kkiapay...) - Zéro dépendance externe."
 authors = ["flavien-hugs"]
 readme = "README.md"

@@ -77,6 +77,17 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          poetry run semantic-release version
-          poetry run semantic-release publish
+          
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            # MANUAL TAG RELEASE: Bypass semantic-release branch checks
+            echo "Manual release on tag $GITHUB_REF"
+            poetry config pypi-token.pypi ${{ secrets.PYPI_API_TOKEN }}
+            poetry build
+            poetry publish
+          else
+            # AUTOMATED MAIN RELEASE: Bump version and publish
+            echo "Automated release on main/master"
+            poetry run semantic-release version
+            poetry run semantic-release publish
+          fi
 

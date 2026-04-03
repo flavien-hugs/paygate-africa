@@ -1,29 +1,10 @@
-"""
-client.py — Implémentation PayDunya
-Étape 2: implémenter PaymentProvider avec les deux méthodes obligatoires.
-"""
-
 import asyncio
-import json
 import urllib.error
-import urllib.request
 from typing import Any
 
 from paygate_africa.base import PaymentProvider, Transaction
-from paygate_africa.cinetpay.settings import conf
-
-
-def _post_json(url: str, payload: dict, headers: dict | None = None) -> dict:
-    """Synchronous JSON POST via urllib — wrapped with asyncio.to_thread for async use."""
-    data = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(url, data=data, method="POST")
-    req.add_header("Content-Type", "application/json")
-    req.add_header("Accept", "application/json")
-    if headers:
-        for key, value in headers.items():
-            req.add_header(key, value)
-    with urllib.request.urlopen(req, timeout=30) as response:
-        return json.loads(response.read())
+from paygate_africa.utils import post_json
+from .settings import conf
 
 
 class PayDunyaProvider(PaymentProvider):
@@ -72,7 +53,8 @@ class PayDunyaProvider(PaymentProvider):
         }
 
         try:
-            data = await asyncio.to_thread(_post_json, url, payload, self._headers)
+            # Utilise l'utilitaire centralisé de la lib
+            data = await asyncio.to_thread(post_json, url, payload, self._headers)
         except urllib.error.HTTPError as exc:
             body = exc.read().decode("utf-8", errors="replace")
             raise RuntimeError(f"PayDunya HTTP Error: {body}") from exc
@@ -88,13 +70,10 @@ class PayDunyaProvider(PaymentProvider):
         `transaction_id` correspond au `token` de la facture PayDunya.
         """
         url = f"{conf.PAYDUNYA_BASE_URL}checkout-invoice/confirm/{transaction_id}"
-        req = urllib.request.Request(url, method="GET")
-        for key, value in self._headers.items():
-            req.add_header(key, value)
-
+        
         try:
-            with urllib.request.urlopen(req, timeout=30) as response:
-                data = json.loads(response.read())
+            # Utilise l'utilitaire centralisé avec la méthode GET
+            data = await asyncio.to_thread(post_json, url, method="GET", headers=self._headers)
         except urllib.error.HTTPError as exc:
             body = exc.read().decode("utf-8", errors="replace")
             raise RuntimeError(f"PayDunya HTTP Error: {body}") from exc

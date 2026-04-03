@@ -5,8 +5,8 @@ from typing import Any, Protocol, runtime_checkable
 @runtime_checkable
 class Transaction(Protocol):
     """
-    Protocol describing the expected interface of a transaction object.
-    Any object exposing these attributes is accepted — no hard dependency on app.models.
+    Protocol defining the required interface for a transaction object.
+    Any object that implements these attributes can be used as a transaction.
     """
     id: str
     amount: float
@@ -18,10 +18,14 @@ class Transaction(Protocol):
 
 
 class PaymentProvider(ABC):
+    """
+    Abstract base class for payment providers.
+    """
+
     @abstractmethod
     async def initiate_payment(self, tx: Transaction) -> str:
         """
-        Initiate a payment and return the redirection or rendering URL.
+        Initiate a payment and return the checkout or redirection URL.
         """
         pass
 
@@ -29,8 +33,8 @@ class PaymentProvider(ABC):
     async def verify_payment(self, transaction_id: str) -> dict[str, Any]:
         """
         Verify the status of a transaction.
-        Should return a dictionary containing at least:
-        - "status": "SUCCESS" or "FAILED" or "PENDING"
-        - "raw_data": The full response from the provider API
+        Returns a dictionary with:
+        - "status": "SUCCESS", "FAILED", or "PENDING"
+        - "raw_data": The original response from the provider's API
         """
         pass

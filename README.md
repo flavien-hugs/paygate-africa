@@ -5,13 +5,15 @@
 [![PyPI version](https://badge.fury.io/py/paygate-africa.svg)](https://badge.fury.io/py/paygate-africa)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**paygate-africa** est une passerelle d'abstraction Python ultra-légère conçue pour unifier les paiements en Afrique. Intégrez **CinetPay**, **Kkiapay** et bien d'autres avec une seule interface, sans coupler votre code à des SDK tiers volumineux.
+**paygate-africa** est une passerelle d'abstraction Python ultra-légère conçue pour unifier les paiements en Afrique.
+Intégrez **CinetPay**, **Kkiapay** et bien d'autres avec une seule interface, sans coupler votre code à des SDK tiers volumineux.
 
 ---
 
 ## Pourquoi paygate-africa ?
 
-Intégrer les paiements africains est souvent synonyme de dépendances lourdes (`httpx`, `pydantic`, `requests`) et de structures de données incompatibles. Nous avons créé ce module pour offrir une alternative **indépendante** et **unifiée**.
+Intégrer les paiements africains est souvent synonyme de dépendances lourdes (`httpx`, `pydantic`, `requests`) et
+de structures de données incompatibles. Nous avons créé ce module pour offrir une alternative **indépendante** et **unifiée**.
 
 | Caractéristique | SDK Traditionnels | paygate-africa |
 | :--- | :---: | :---: |
@@ -59,14 +61,14 @@ class MyTransaction:
 ### 2. Le code d'intégration
 ```python
 import asyncio
-from paygate_africa.factory import select_provider, PaymentProviderPath
+from paygate_africa import select_provider, PaymentProviderPath
 
 async def main():
     # Sélection dynamique (CINETPAY ou KKIAPAY)
     provider = select_provider(PaymentProviderPath.CINETPAY)
-    
+
     tx = MyTransaction()
-    
+
     # Initiation (redirection URL)
     payment_url = await provider.initiate_payment(tx)
     print(f"Lien de paiement : {payment_url}")
@@ -104,7 +106,8 @@ paygate-africa/
 
 ## Contribution
 
-Nous accueillons les contributions avec plaisir ! Surtout pour ajouter de nouveaux providers africains (PayDunya, Fedapay, MonCash, etc.).
+Nous accueillons les contributions avec plaisir ! Surtout pour ajouter de nouveaux providers africains
+(PayDunya, Fedapay, MonCash, etc.).
 
 1. Clonez le dépôt et installez les dépendances dev : `poetry install`
 2. Lancez les tests : `poetry run pytest`

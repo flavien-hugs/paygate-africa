@@ -41,7 +41,7 @@ async def test_kkiapay_verify_payment_success():
         "amount": 5000
     }
 
-    with patch("paygate_africa.kkiapay.client._post_json", return_value=mock_response):
+    with patch("paygate_africa.kkiapay.client.post_json", return_value=mock_response):
         result = await provider.verify_payment("123456")
         assert result["status"] == "SUCCESS"
         assert result["raw_data"] == mock_response
@@ -56,6 +56,6 @@ async def test_kkiapay_verify_payment_failed():
         "reference": "error-ref"
     }
 
-    with patch("paygate_africa.kkiapay.client._post_json", return_value=mock_response):
+    with patch("paygate_africa.kkiapay.client.post_json", return_value=mock_response):
         result = await provider.verify_payment("error-ref")
         assert result["status"] == "FAILED"

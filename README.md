@@ -115,6 +115,17 @@ Nous accueillons les contributions avec plaisir ! Surtout pour ajouter de nouvea
 
 ---
 
+## Gestion des Tags Git
+
+Le projet utilise les tags Git pour déclencher les déploiements automatiques. Voici les commandes utiles :
+
+- **Ajouter un tag** : `git tag v0.1.2`
+- **Pousser un tag** (déclenche la release PyPI) : `git push origin v0.1.2`
+- **Supprimer un tag local** : `git tag -d v0.1.2`
+- **Supprimer un tag distant** : `git push origin --delete v0.1.2`
+
+---
+
 ## Licence
 
 Ce projet est sous licence MIT. Libre pour usage commercial et personnel.

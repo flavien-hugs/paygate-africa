@@ -12,7 +12,7 @@ def post_json(url: str, payload: dict | None = None, headers: dict | None = None
     Perform a synchronous JSON HTTP request using urllib.
     """
     data = json.dumps(payload).encode("utf-8") if payload is not None else None
-    
+
     req = urllib.request.Request(url, data=data, method=method)
     req.add_header("Content-Type", "application/json")
     req.add_header("Accept", "application/json")

@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../base/">
+        <link rel="prev" href="../factory/">
       
       
-        <link rel="next" href="../utils/">
+        <link rel="next" href="../cinetpay/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>factory.py - paygate-africa</title>
+        <title>utils.py - paygate-africa</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reference-factorypy" class="md-skip">
+        <a href="#reference-utilspy" class="md-skip">
           Aller au contenu
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              factory.py
+              utils.py
             
           </span>
         </div>
@@ -713,6 +713,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../factory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    factory.py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -732,7 +760,7 @@
   <span class="md-ellipsis">
     
   
-    factory.py
+    utils.py
   
 
     
@@ -750,7 +778,7 @@
   <span class="md-ellipsis">
     
   
-    factory.py
+    utils.py
   
 
     
@@ -776,10 +804,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#enum-paymentproviderpath" class="md-nav__link">
+  <a href="#requetes-http" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enum PaymentProviderPath
+        Requêtes HTTP
       
     </span>
   </a>
@@ -787,10 +815,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#paygate_africa.factory.PaymentProviderPath" class="md-nav__link">
+  <a href="#paygate_africa.utils.post_json" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PaymentProviderPath
+        post_json
       
     </span>
   </a>
@@ -798,10 +826,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enum-providersettingspath" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enum ProviderSettingsPath
+        Configuration
       
     </span>
   </a>
@@ -809,54 +837,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#paygate_africa.factory.ProviderSettingsPath" class="md-nav__link">
+  <a href="#paygate_africa.utils.require_env" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ProviderSettingsPath
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fonctions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fonctions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#paygate_africa.factory.validate_payment_provider" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        validate_payment_provider
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#paygate_africa.factory.load_provider_class" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        load_provider_class
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#paygate_africa.factory.select_provider" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        select_provider
+        require_env
       
     </span>
   </a>
@@ -867,34 +851,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../utils/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    utils.py
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1168,10 +1124,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#enum-paymentproviderpath" class="md-nav__link">
+  <a href="#requetes-http" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enum PaymentProviderPath
+        Requêtes HTTP
       
     </span>
   </a>
@@ -1179,10 +1135,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#paygate_africa.factory.PaymentProviderPath" class="md-nav__link">
+  <a href="#paygate_africa.utils.post_json" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PaymentProviderPath
+        post_json
       
     </span>
   </a>
@@ -1190,10 +1146,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enum-providersettingspath" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enum ProviderSettingsPath
+        Configuration
       
     </span>
   </a>
@@ -1201,54 +1157,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#paygate_africa.factory.ProviderSettingsPath" class="md-nav__link">
+  <a href="#paygate_africa.utils.require_env" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ProviderSettingsPath
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fonctions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fonctions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#paygate_africa.factory.validate_payment_provider" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        validate_payment_provider
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#paygate_africa.factory.load_provider_class" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        load_provider_class
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#paygate_africa.factory.select_provider" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        select_provider
+        require_env
       
     </span>
   </a>
@@ -1275,251 +1187,97 @@
   
 
 
-<h1 id="reference-factorypy">Référence — factory.py<a class="headerlink" href="#reference-factorypy" title="Permanent link">&para;</a></h1>
-<p>Ce module gère le chargement dynamique des providers via <code>importlib</code>.
-Les classes sont mises en cache avec <code>lru_cache</code> pour éviter les imports répétitifs.</p>
-<h2 id="enum-paymentproviderpath">Enum <code>PaymentProviderPath</code><a class="headerlink" href="#enum-paymentproviderpath" title="Permanent link">&para;</a></h2>
-<p>Dot-paths vers les classes clients de chaque provider.</p>
+<h1 id="reference-utilspy">Référence — utils.py<a class="headerlink" href="#reference-utilspy" title="Permanent link">&para;</a></h1>
+<p>Fonctions utilitaires partagées par tous les modules de la bibliothèque.</p>
+<h2 id="requetes-http">Requêtes HTTP<a class="headerlink" href="#requetes-http" title="Permanent link">&para;</a></h2>
 
 
-<div class="doc doc-object doc-class">
+<div class="doc doc-object doc-function">
 
 
+<h2 id="paygate_africa.utils.post_json" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class="highlight language-python"><span class="n">paygate_africa</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">post_json</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;POST&#39;</span><span class="p">)</span></code>
 
-<h2 id="paygate_africa.factory.PaymentProviderPath" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <code>paygate_africa.factory.PaymentProviderPath</code>
-
-
-<a href="#paygate_africa.factory.PaymentProviderPath" class="headerlink" title="Permanent link">&para;</a></h2>
+<a href="#paygate_africa.utils.post_json" class="headerlink" title="Permanent link">&para;</a></h2>
 
 
     <div class="doc doc-contents first">
-            <p class="doc doc-class-bases">
-              Bases: <code><span title="str">str</span></code>, <code><span title="enum.Enum">Enum</span></code></p>
+
+        <p>Perform a synchronous JSON HTTP request using urllib.</p>
 
 
-
-        <p>Registry of dot-paths pointing to each provider's implementation.</p>
-
-
-
-
-
-
-
-
-              <details class="mkdocstrings-source">
-                <summary>Source code in <code>src/paygate_africa/factory.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/paygate_africa/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-10">10</a></span>
 <span class="normal"><a href="#__codelineno-0-11">11</a></span>
 <span class="normal"><a href="#__codelineno-0-12">12</a></span>
 <span class="normal"><a href="#__codelineno-0-13">13</a></span>
-<span class="normal"><a href="#__codelineno-0-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="nd">@unique</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">class</span><span class="w"> </span><span class="nc">PaymentProviderPath</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">    Registry of dot-paths pointing to each provider&#39;s implementation.</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="n">KKIAPAY</span> <span class="o">=</span> <span class="s2">&quot;paygate_africa.kkiapay.client.KkiapayProvider&quot;</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="n">CINETPAY</span> <span class="o">=</span> <span class="s2">&quot;paygate_africa.cinetpay.client.CinetPayProvider&quot;</span>
-</code></pre></div></td></tr></table></div>
-              </details>
-
-
-
-<div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-
-
-  </div>
-
-    </div>
-
-</div><hr />
-<h2 id="enum-providersettingspath">Enum <code>ProviderSettingsPath</code><a class="headerlink" href="#enum-providersettingspath" title="Permanent link">&para;</a></h2>
-<p>Dot-paths vers les classes settings de chaque provider.</p>
-
-
-<div class="doc doc-object doc-class">
-
-
-
-<h2 id="paygate_africa.factory.ProviderSettingsPath" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <code>paygate_africa.factory.ProviderSettingsPath</code>
-
-
-<a href="#paygate_africa.factory.ProviderSettingsPath" class="headerlink" title="Permanent link">&para;</a></h2>
-
-
-    <div class="doc doc-contents first">
-            <p class="doc doc-class-bases">
-              Bases: <code><span title="str">str</span></code>, <code><span title="enum.Enum">Enum</span></code></p>
-
-
-
-        <p>Registry of dot-paths pointing to each provider's settings.</p>
-
-
-
-
-
-
-
-
-              <details class="mkdocstrings-source">
-                <summary>Source code in <code>src/paygate_africa/factory.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
 <span class="normal"><a href="#__codelineno-0-18">18</a></span>
 <span class="normal"><a href="#__codelineno-0-19">19</a></span>
 <span class="normal"><a href="#__codelineno-0-20">20</a></span>
 <span class="normal"><a href="#__codelineno-0-21">21</a></span>
 <span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="nd">@unique</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="k">class</span><span class="w"> </span><span class="nc">ProviderSettingsPath</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    Registry of dot-paths pointing to each provider&#39;s settings.</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="n">KKIAPAY</span> <span class="o">=</span> <span class="s2">&quot;paygate_africa.kkiapay.settings.KkiapaySettings&quot;</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="n">CINETPAY</span> <span class="o">=</span> <span class="s2">&quot;paygate_africa.cinetpay.settings.CinetPaySettings&quot;</span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">post_json</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">payload</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;POST&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="sd">    Perform a synchronous JSON HTTP request using urllib.</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">payload</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="n">req</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="n">req</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="s2">&quot;Accept&quot;</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="k">if</span> <span class="n">headers</span><span class="p">:</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">headers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>            <span class="n">req</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </code></pre></div></td></tr></table></div>
-              </details>
-
-
-
-<div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-
-
-  </div>
-
+            </details>
     </div>
 
 </div><hr />
-<h2 id="fonctions">Fonctions<a class="headerlink" href="#fonctions" title="Permanent link">&para;</a></h2>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 
 
 <div class="doc doc-object doc-function">
 
 
-<h2 id="paygate_africa.factory.validate_payment_provider" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class="highlight language-python"><span class="n">paygate_africa</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">validate_payment_provider</span><span class="p">(</span><span class="n">provider_name</span><span class="p">)</span></code>
+<h2 id="paygate_africa.utils.require_env" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class="highlight language-python"><span class="n">paygate_africa</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">require_env</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></code>
 
-<a href="#paygate_africa.factory.validate_payment_provider" class="headerlink" title="Permanent link">&para;</a></h2>
+<a href="#paygate_africa.utils.require_env" class="headerlink" title="Permanent link">&para;</a></h2>
 
 
     <div class="doc doc-contents first">
 
-        <p>Ensures a given provider name is recognized by the library.</p>
+        <p>Retrieve an environment variable or raise a RuntimeError if not set.</p>
 
 
             <details class="mkdocstrings-source">
-              <summary>Source code in <code>src/paygate_africa/factory.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+              <summary>Source code in <code>src/paygate_africa/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-28">28</a></span>
 <span class="normal"><a href="#__codelineno-0-29">29</a></span>
 <span class="normal"><a href="#__codelineno-0-30">30</a></span>
 <span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="k">def</span><span class="w"> </span><span class="nf">validate_payment_provider</span><span class="p">(</span><span class="n">provider_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    Ensures a given provider name is recognized by the library.</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="k">if</span> <span class="n">provider_name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">PaymentProviderPath</span><span class="o">.</span><span class="n">__members__</span><span class="p">:</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown payment provider: </span><span class="si">{</span><span class="n">provider_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="k">return</span> <span class="n">provider_name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="paygate_africa.factory.load_provider_class" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class="highlight language-python"><span class="n">paygate_africa</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">load_provider_class</span><span class="p">(</span><span class="n">dot_path</span><span class="p">)</span></code>
-
-  <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-cached"><code>cached</code></small>
-  </span>
-
-<a href="#paygate_africa.factory.load_provider_class" class="headerlink" title="Permanent link">&para;</a></h2>
-
-
-    <div class="doc doc-contents first">
-
-        <p>Dynamically loads a class from its dot-path.</p>
-
-
-            <details class="mkdocstrings-source">
-              <summary>Source code in <code>src/paygate_africa/factory.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="nd">@lru_cache</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="k">def</span><span class="w"> </span><span class="nf">load_provider_class</span><span class="p">(</span><span class="n">dot_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    Dynamically loads a class from its dot-path.</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="n">module_path</span><span class="p">,</span> <span class="n">class_name</span> <span class="o">=</span> <span class="n">dot_path</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module_path</span><span class="p">)</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">class_name</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h2 id="paygate_africa.factory.select_provider" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class="highlight language-python"><span class="n">paygate_africa</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">select_provider</span><span class="p">(</span><span class="n">dot_path</span><span class="p">)</span></code>
-
-<a href="#paygate_africa.factory.select_provider" class="headerlink" title="Permanent link">&para;</a></h2>
-
-
-    <div class="doc doc-contents first">
-
-        <p>Factory function to instantiate a provider from its dot-path.</p>
-
-
-            <details class="mkdocstrings-source">
-              <summary>Source code in <code>src/paygate_africa/factory.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-45">45</a></span>
-<span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span>
-<span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span>
-<span class="normal"><a href="#__codelineno-0-50">50</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="k">def</span><span class="w"> </span><span class="nf">select_provider</span><span class="p">(</span><span class="n">dot_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PaymentProvider</span><span class="p">:</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    Factory function to instantiate a provider from its dot-path.</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">provider_class</span> <span class="o">=</span> <span class="n">load_provider_class</span><span class="p">(</span><span class="n">dot_path</span><span class="p">)</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="k">return</span> <span class="n">provider_class</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="k">def</span><span class="w"> </span><span class="nf">require_env</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    Retrieve an environment variable or raise a RuntimeError if not set.</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="n">value</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="p">:</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Missing required environment variable: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="k">return</span> <span class="n">value</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1560,7 +1318,7 @@ Les classes sont mises en cache avec <code>lru_cache</code> pour éviter les imp
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../base/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: base.py">
+          <a href="../factory/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: factory.py">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1570,20 +1328,20 @@ Les classes sont mises en cache avec <code>lru_cache</code> pour éviter les imp
                 Précédent
               </span>
               <div class="md-ellipsis">
-                base.py
+                factory.py
               </div>
             </div>
           </a>
         
         
           
-          <a href="../utils/" class="md-footer__link md-footer__link--next" aria-label="Suivant: utils.py">
+          <a href="../cinetpay/" class="md-footer__link md-footer__link--next" aria-label="Suivant: cinetpay.py">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                utils.py
+                cinetpay.py
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -4,6 +4,7 @@ from typing import Any
 
 from paygate_africa.base import PaymentProvider, Transaction
 from paygate_africa.utils import post_json
+
 from .settings import conf
 
 
@@ -70,7 +71,7 @@ class PayDunyaProvider(PaymentProvider):
         `transaction_id` correspond au `token` de la facture PayDunya.
         """
         url = f"{conf.PAYDUNYA_BASE_URL}checkout-invoice/confirm/{transaction_id}"
-        
+
         try:
             # Utilise l'utilitaire centralisé avec la méthode GET
             data = await asyncio.to_thread(post_json, url, method="GET", headers=self._headers)

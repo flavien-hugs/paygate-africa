@@ -1,5 +1,6 @@
 import os
 from functools import lru_cache
+
 from paygate_africa.utils import require_env
 
 

@@ -1,160 +1,117 @@
-# payment-providers
+# paygate-africa
 
-Module Python d'abstraction des passerelles de paiement. Il fournit une interface unifiée
-pour intégrer plusieurs fournisseurs de paiement sans coupler le reste de l'application à
-un SDK tiers.
+[![CI/CD](https://github.com/flavien-hugs/paygate-africa/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/flavien-hugs/paygate-africa/actions/workflows/ci-cd.yml)
+[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://flavien-hugs.github.io/paygate-africa/)
+[![PyPI version](https://badge.fury.io/py/paygate-africa.svg)](https://badge.fury.io/py/paygate-africa)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Dépendances externes : aucune** — uniquement la bibliothèque standard Python.
-
----
-
-## Architecture
-
-```
-payment-providers/
-├── base.py          # Contrat abstrait (ABC) + Protocol Transaction
-├── factory.py       # Chargement dynamique des providers
-├── cinetpay/
-│   ├── client.py    # Implémentation CinetPay
-│   └── settings.py  # Configuration via variables d'environnement
-└── kkiapay/
-    ├── client.py    # Implémentation Kkiapay
-    └── settings.py  # Configuration via variables d'environnement
-```
-
-### Patron de conception
-
-Le module implémente le patron **Strategy + Factory** :
-
-- `PaymentProvider` (ABC) définit le contrat commun à tous les providers.
-- `Transaction` (Protocol) décrit l'objet attendu en entrée — n'importe quel objet Python
-    exposant les bons attributs est accepté (duck typing).
-- `factory.py` charge dynamiquement le bon provider via `importlib`, avec mise en cache via
-    `lru_cache`.
+**paygate-africa** est une passerelle d'abstraction Python ultra-légère conçue pour unifier les paiements en Afrique. Intégrez **CinetPay**, **Kkiapay** et bien d'autres avec une seule interface, sans coupler votre code à des SDK tiers volumineux.
 
 ---
 
-## Contrat
+## Pourquoi paygate-africa ?
 
-Chaque provider implémente deux méthodes asynchrones :
+Intégrer les paiements africains est souvent synonyme de dépendances lourdes (`httpx`, `pydantic`, `requests`) et de structures de données incompatibles. Nous avons créé ce module pour offrir une alternative **indépendante** et **unifiée**.
 
-```python
-async def initiate_payment(self, tx: Transaction) -> str:
-    """Initialise un paiement. Retourne l'URL de redirection ou de rendu."""
+| Caractéristique | SDK Traditionnels | paygate-africa |
+| :--- | :---: | :---: |
+| **Dépendances** | 10MB+ (httpx, pydantic...) | **0MB (Standard Lib)** |
+| **Utilisation** | SDK spécifique par provider | **Interface Unique (Factory)** |
+| **Poids** | Lourd | **Ultra-léger (< 50KB)** |
+| **Couplage** | Fort (modèles dictés) | **Faible (Duck Typing / Protocol)** |
 
-async def verify_payment(self, transaction_id: str) -> dict:
-    """Vérifie le statut d'une transaction. Retourne un dict normalisé."""
-```
+---
 
-### Format de retour de `verify_payment`
+## Fonctionnalités Clés
 
-```python
-{
-    "status": "SUCCESS" | "FAILED" | "PENDING",
-    "raw_data": { ... }  # Réponse brute de l'API du provider
-}
-```
+- **Unified Interface** : Une seule méthode `initiate_payment` et `verify_payment` pour tous les providers.
+- **Asynchrone par défaut** : Conçu pour s'intégrer parfaitement avec FastAPI ou Django (avec `sync_to_async`).
+- **Type Safety** : Utilisation des `Protocols` Python (PEP 544) pour une validation stricte sans dépendance `pydantic`.
+- **Extensible** : Ajoutez un nouveau provider en créant seulement deux classes.
+- **Zero Side-Effects** : Aucun logger imposé, aucune surcharge mémoire.
 
-### Protocol `Transaction`
+---
 
-```python
-class Transaction(Protocol):
-    id: str
-    amount: float
-    currency: str
-    description: str | None
-    user_name: str | None
-    user_email: str
-    user_phone: str | None
+## Installation
+
+```bash
+pip install paygate-africa
 ```
 
 ---
 
-## Providers
+## Exemple : Intégrer un paiement en 30 secondes
 
-### CinetPay
-
-Paiement via redirection : `initiate_payment` renvoie une URL de paiement hébergée sur CinetPay.
-
-**Variables d'environnement requises :**
-
-| Variable | Description |
-|---|---|
-| `CINETPAY_API_KEY` | Clé API CinetPay |
-| `CINETPAY_SITE_ID` | Identifiant du site |
-| `CINETPAY_SECRET_KEY` | Clé secrète |
-| `CINETPAY_BASE_URL` | URL de base de l'API (ex: `https://api-checkout.cinetpay.com/v2/`) |
-| `SITE_URL` | URL publique du site (défaut : `http://localhost:8080`) |
-
-Les URLs de notification et de retour sont construites automatiquement :
-- `notify_url` → `{SITE_URL}/webhooks/cinetpay`
-- `return_url` → `{SITE_URL}/payment/success`
-
----
-
-### Kkiapay
-
-Paiement via widget frontend : `initiate_payment` renvoie une URL de rendu interne
-(`/payment/kkiapay/render/{tx.id}`).
-La vérification se fait via l'API Kkiapay avec le `transactionId` retourné par le widget.
-
-**Variables d'environnement requises :**
-
-| Variable | Description |
-|---|---|
-| `KKIAPAY_PUBLIC_KEY` | Clé publique |
-| `KKIAPAY_PRIVATE_KEY` | Clé privée |
-| `KKIAPAY_SECRET_KEY` | Clé secrète |
-
-**Variables optionnelles :**
-
-| Variable | Défaut |
-|---|---|
-| `KKIAPAY_URL` | `https://api.kkiapay.me` |
-| `KKIAPAY_SANDBOX_URL` | `https://api-sandbox.kkiapay.me` |
-| `KKIAPAY_TRANSACTION_STATUS_URL` | `/api/v1/transactions/status` |
-| `KKIAPAY_SANDBOX` | `true` |
-
----
-
-## Utilisation
-
-### Sélectionner un provider dynamiquement
+### 1. Définissez votre objet Transaction (Duck Typing)
+Pas besoin d'hériter d'une classe. N'importe quel objet avec ces attributs fera l'affaire.
 
 ```python
-from app.providers.factory import PaymentProviderPath, select_provider
-
-provider = select_provider(PaymentProviderPath.CINETPAY)
-url = await provider.initiate_payment(tx)
+class MyTransaction:
+    id = "ORDER_123"
+    amount = 5000.0
+    currency = "XOF"
+    user_email = "client@email.com"
+    user_name = "Jean Dupont" # Optionnel
+    description = "Achat Pack Pro" # Optionnel
+    user_phone = "+22501020304" # Optionnel
 ```
 
-### Valider la valeur d'un provider
-
+### 2. Le code d'intégration
 ```python
-from app.providers.factory import validate_payment_provider
+import asyncio
+from paygate_africa.factory import select_provider, PaymentProviderPath
 
-name = validate_payment_provider("cinetpay")  # "CINETPAY"
-```
+async def main():
+    # Sélection dynamique (CINETPAY ou KKIAPAY)
+    provider = select_provider(PaymentProviderPath.CINETPAY)
+    
+    tx = MyTransaction()
+    
+    # Initiation (redirection URL)
+    payment_url = await provider.initiate_payment(tx)
+    print(f"Lien de paiement : {payment_url}")
 
-### Ajouter un nouveau provider
-
-1. Créer un dossier `myprovider/` avec `__init__.py`, `client.py`, `settings.py`.
-2. Implémenter `MyProvider(PaymentProvider)` avec `initiate_payment` et `verify_payment`.
-3. Ajouter les entrées dans `factory.py` :
-
-```python
-class PaymentProviderPath(str, Enum):
-    MYPROVIDER = "app.providers.myprovider.client.MyProvider"
-
-class ProviderSettingsPath(str, Enum):
-    MYPROVIDER = "app.providers.myprovider.settings.MyProviderSettings"
+    # Vérification normalisée
+    res = await provider.verify_payment(tx.id)
+    if res["status"] == "SUCCESS":
+        print("Paiement validé !")
 ```
 
 ---
 
-## Notes
+## Providers Supportés
 
-- Les appels HTTP sont réalisés avec `urllib.request` (stdlib) encapsulé dans
-  `asyncio.to_thread` pour rester compatible avec un contexte async (FastAPI, etc.).
-- La configuration est chargée une seule fois au démarrage grâce à `lru_cache`.
-- Le diagnostic réseau CinetPay (DNS + TCP) n'est activé qu'en mode `DEBUG`.
+| Provider | Mécanique | Statut |
+|---|---|---|
+| **CinetPay** | Redirection sécurisée | Stable |
+| **Kkiapay** | Widget Frontend (JS) | Stable |
+| **PayDunya** | Redirection sécurisée | En cours |
+
+---
+
+## Folder Structure
+
+```text
+paygate-africa/
+├── src/paygate_africa/
+│   ├── base.py          # Interface commune (Protocol + ABC)
+│   ├── factory.py       # Coeur dynamique
+│   └── cinetpay/        # Implémentations spécifiques
+└── tests/               # 100% de couverture mockée
+```
+
+---
+
+## Contribution
+
+Nous accueillons les contributions avec plaisir ! Surtout pour ajouter de nouveaux providers africains (PayDunya, Fedapay, MonCash, etc.).
+
+1. Clonez le dépôt et installez les dépendances dev : `poetry install`
+2. Lancez les tests : `poetry run pytest`
+3. Vérifiez le linting : `poetry run ruff check .`
+
+---
+
+## Licence
+
+Ce projet est sous licence MIT. Libre pour usage commercial et personnel.

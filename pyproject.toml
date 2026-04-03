@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "paygate-africa"
-version = "0.1.0"
+version = "0.1.1"
 description = "Abstraction unifiée des passerelles de paiement africaines (CinetPay, Kkiapay...) - Zéro dépendance externe."
 authors = ["flavien-hugs"]
 readme = "README.md"
 license = "MIT"
-homepage = "https://github.com/flavien-hugs/payment-providers"
-repository = "https://github.com/flavien-hugs/payment-providers"
+homepage = "https://github.com/flavien-hugs/paygate-africa"
+repository = "https://github.com/flavien-hugs/paygate-africa"
 keywords = ["payment", "checkout", "cinetpay", "kkiapay", "benin", "ivory-coast", "africa"]
 classifiers = [
     "Programming Language :: Python :: 3",
